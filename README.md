@@ -1,13 +1,7 @@
-# Api_commune_Togo
-Where we build an open source API to retrieve some data about Togo's region
+# Project : Api_commune_Togo
+Where we build an open source API to retrieve some data about Togo
 
-# Project
+# Contributors
+@hermann106 and @syk1k from [it_kalamar](https://kalamar.tg/).
 
 
-# Needs
-
-# Data that we need
-
-# How to contribute
-
-# stacks
