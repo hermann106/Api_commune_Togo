@@ -25,7 +25,7 @@ SECRET_KEY = '+7*-lj!to5qdyb4$l#ns-436_mwxx#6xf0bt*ydbekz$9@@_%f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +41,22 @@ INSTALLED_APPS = [
     'dirigeant',
 
     'rest_framework',
+    'rest_framework.authtoken',
+    'django_filters',
+    'dj_rest_auth',
+    'drf_yasg'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter'
+    ],
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'rest_framework.authentication.BasicAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
+    # ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,3 +143,20 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+SWAGGER_SETTINGS = {
+    # 'LOGIN_URL': '/session/auth/login',
+    # 'LOGOUT_URL': '/session/auth/logout',
+    # 'DEFAULT_INFO': 'api.urls.swagger_info',
+    # 'SECURITY_DEFINITIONS': {
+    #     'Basic': {
+    #         'type': 'basic'
+    #     },
+    # },
+    # 'APIS_SORTER': 'alpha',
+    # 'SUPPORTED_SUBMIT_METHODS': ['get', 'post', 'put', 'delete', 'patch'],
+    # 'OPERATIONS_SORTER': 'alpha'
+}
+REDOC_SETTINGS = {
+    'LAZY_RENDERING': True,
+}

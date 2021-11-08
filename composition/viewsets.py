@@ -20,6 +20,7 @@ from .serializers import (
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import mixins
+from rest_framework import filters
 
 
 class RegionViewSet(mixins.CreateModelMixin,mixins.ListModelMixin,mixins.RetrieveModelMixin,viewsets.GenericViewSet):
@@ -29,6 +30,9 @@ class RegionViewSet(mixins.CreateModelMixin,mixins.ListModelMixin,mixins.Retriev
     queryset = Region.objects.all()
     serializer_class = RegionSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']
+    filtersets_fields = ['name','description']
 
 
 
@@ -40,6 +44,9 @@ class PrefectureViewSet(mixins.CreateModelMixin,mixins.ListModelMixin,mixins.Ret
     queryset = Prefecture.objects.all()
     serializer_class = PrefectureSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']
+    filtersets_fields = ['name','description']
 
 
 
@@ -51,6 +58,9 @@ class CommuneViewSet(mixins.CreateModelMixin,mixins.ListModelMixin,mixins.Retrie
     serializer_class = CommuneSerializer
     permission_classes([IsAuthenticated])
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']
+    filtersets_fields = ['name','description']
 
 
 
@@ -61,6 +71,9 @@ class CantonViewSet(mixins.CreateModelMixin,mixins.ListModelMixin,mixins.Retriev
     queryset = Canton.objects.all()
     serializer_class = CantonSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']
+    filtersets_fields = ['name','description']
 
 
 
@@ -71,6 +84,9 @@ class VillageViewSet(mixins.CreateModelMixin,mixins.ListModelMixin,mixins.Retrie
     queryset = Village.objects.all()
     serializer_class = VillageSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']
+    filtersets_fields = ['name','description']
 
 
 
@@ -81,3 +97,6 @@ class QuartierViewSet(mixins.CreateModelMixin,mixins.ListModelMixin,mixins.Retri
     queryset = Quartier.objects.all()
     serializer_class = QuartierSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']
+    filtersets_fields = ['name','description']

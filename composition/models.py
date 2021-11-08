@@ -72,6 +72,7 @@ class Village(models.Model):
         ordering = ["-created_at"]
 
 class Quartier(models.Model):
+    village = models.ForeignKey(Village, related_name="quartiers", on_delete=models.CASCADE)
     name = models.CharField(max_length=100, verbose_name=_("name"))
     description = models.TextField(_("description"), blank=True, null=True)
     coordonate = models.JSONField(blank=True, null=True, verbose_name=_("Coordonate"))
